@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:viewmodels="clr-namespace:FirebaseDemo.ViewModels"
+             xmlns:models="clr-namespace:FirebaseDemo.Models"
+             x:DataType="viewmodels:EmployeeListPageViewModel"
+             Title="Employee List"
+             x:Class="FirebaseDemo.Views.EmployeeList">
+    <ContentPage.Content>
+        <StackLayout Margin="10,0,10,0">
+            <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="True" />
+
+            <RefreshView Command="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefreshing}" >
+                <CollectionView ItemsSource="{Binding Employees}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="models:EmployeeModel">
+                            <StackLayout Margin="10,5,10,0">
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="First Name: " />
+                                    <Label Text="{Binding FirstName}" />
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Last Name: " />
+                                    <Label Text="{Binding LastName}" />
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Email: " />
+                                    <Label Text="{Binding Email}" />
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Gender: " />
+                                    <Label Text="{Binding Gender}" />
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Position: " />
+                                    <Label Text="{Binding Position}" />
+                                </StackLayout>
+                                <BoxView HeightRequest="1" Color="Gray" />
+
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type viewmodels:EmployeeListPageViewModel}},Path=SelectedEmployeeCommand}" CommandParameter="{Binding .}" />
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </RefreshView>
+           
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

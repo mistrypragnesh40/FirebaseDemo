@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:FirebaseDemo.ViewModels"
+             x:DataType="viewmodels:AddUpdateEmployeePageViewModel"
+             Title="Add/Update Employee"
+             x:Class="FirebaseDemo.Views.AddUpdateEmployee">
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry Placeholder="First Name" Text="{Binding EmployeeDetail.FirstName}" />
+            <Entry Placeholder="Last Name" Text="{Binding EmployeeDetail.LastName}"  />
+            <Entry Placeholder="Gender" Text="{Binding EmployeeDetail.Gender}"  />
+            <Entry Placeholder="Mobile Number" Text="{Binding EmployeeDetail.MobileNumber}"  Keyboard="Numeric" />
+            <Entry Placeholder="Position" Text="{Binding EmployeeDetail.Position}"   />
+            <Entry Placeholder="Email" Text="{Binding EmployeeDetail.Email}"  />
+
+            <Button Text="Save Details" Command="{Binding SaveEmployeeCommand}" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
