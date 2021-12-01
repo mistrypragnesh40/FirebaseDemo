@@ -6,7 +6,7 @@ namespace FirebaseDemo.Models
 {
     public static class Setting
     {
-        internal const string FireBaseDatabaseUrl = "https://employeedetails-53bc0-default-rtdb.firebaseio.com/";
+        internal const string FireBaseDatabaseUrl = "";
         internal const string FireBaseSeceret = "";
     }
 }
